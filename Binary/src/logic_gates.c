@@ -78,7 +78,7 @@ int xor_two(int operand1,int operand2)
     printf("\n%d\n",result);
     return result;
 }
-int xor_three(int operand1,int operand2,intoperand3 )
+int xor_three(int operand1,int operand2,int operand3 )
 {
     int result;
     result=((operand1 & operand2 & operand3) + ((~operand1)&(~operand2)&operand3) + ((~operand1)&operand2&(~operand3)) + (operand1&(~operand2)&(~operand3)));
