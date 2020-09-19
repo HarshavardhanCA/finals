@@ -1,160 +1,145 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<conio.h>
-
-
-enum gates{ NOT=1, AND, OR, NAND, NOR, XOR, XNOR, QUIT };
+#include<stdlib.h>
+enum gates{ NOT=1, AND, OR, NAND, NOR, XOR, XNOR, EXIT };
 int main()
 {
-int n,choice,a,b,c,result;
-printf("\nWelcome!!!\n");
-printf("\nLogic Gates Evaluator");
+    int no_input,choice,operand1,operand2,operand3,result;
+    printf("\n Basic Logic Gates Operations \n");
     while(1)
     {
-    printf("\n Choose any of the below operations \n");
-    printf("\n1. NOT 2. AND 3. OR 4. NAND 5. NOR 6. XOR 7. XNOR 8.EXIT\n");
+    printf("\n Select Choices \n");
+    printf("\n 1. NOT \n 2. AND \n 3. OR \n 4. NAND \n 5. NOR \n 6. XOR \n 7. XNOR \n 8.EXIT \n");
     scanf("%d", &choice);
-
     switch(choice)
     {
-    case NOT :
-             printf("\nEnter the value\n");
-             scanf("%d",&a);
-             result=not(a);
+    case NOT:
+             printf("\n Enter the value \n");
+             scanf("%d",&operand1);
+             result=not(operand1);
              break;
-
-    case AND :
-              printf("\n 1.Two input AND\n 2.Three input AND\n");
-              scanf("%d",&n);
-              if(n==1)
-              {
-                int a,b;
+    case AND:
+             printf("\n 1.Two input AND\n 2.Three input AND\n");
+             scanf("%d",&no_input);
+             if(no_input==2)
+             {
+               int operand1,operand2;
+               printf("\nEnter the values \n");
+               scanf("%d %d",&operand1,&operand2);
+               result=and_two(operand1,operand2);
+             }
+             else if(no_input==3)
+             {
+               int operand1,operand2,operand3;
+               printf("\n Enter the values \n");
+               scanf("%d %d %d",&operand1,&operand2,&operand3);
+               result=and_three(operand1,operand2,operand3);
+             }
+             else
+             {
+               printf("\n Invalid Input\n");
+             }
+             break;
+    case OR:
+            printf("\n 1.Two input OR\n 2.Three input OR\n");
+            scanf("%d",&no_input);
+            if(no_input==2)
+            {
+                int operand1,operand2;
+                printf("\n Enter the values \n");
+                scanf("%d %d",&operand1,&operand2);
+                result=or_two(operand1,operand2);
+            }
+            else if(no_input==3)
+            {
+                int operand1,operand2,operand3;
+                printf("\n Enter the values \n");
+                scanf("%d %d %d",&operand1,&operand2,&operand3);
+                result=or_three(operand1,operand2,operand3);
+            }
+            else
+            {
+                 printf("\n Invalid Input\n");
+            }
+            break;
+    case NAND:
+            printf("\n 1.Two input NAND\n 2.Three input NAND\n");
+            scanf("%d",&no_input);
+            if(no_input==2)
+            {
+                int operand1,operand2;
+                printf("\n Enter the values \n");
+                scanf("%d %d",&operand1,&operand2);
+                result=nand_two(operand1,operand2);
+            }
+            else if(no_input==3)
+            {
+                int operand1,operand2,operand3;
+                printf("\n Enter the values \n");
+                scanf("%d %d %d",&operand1,&operand2,&operand3);
+                result=nand_three(operand1,operand2,operand3);
+            }
+            else
+            {
+                printf("\ninvalid input\n");
+            }
+            break;
+    case NOR:
+            printf("\n 1.Two input NOR\n 2.Three input NOR\n");
+            scanf("%d",&no_input);
+            if(no_input==2)
+            {
+                int operand1,operand2;
                 printf("\nEnter the values\n");
-                scanf("%d %d",&a,&b);
-                result=and_two(a,b);
-              }
-              else if(n==2)
-              {
-               int a,b,c;
-               printf("\nEnter the values\n");
-               scanf("%d %d %d",&a,&b,&c);
-               result=and_three(a,b,c);
-              }
-              else
-              {
-               printf("\ninvalid input\n");
-              }
+                scanf("%d %d",&operand1,&operand2);
+                result=nor_two(operand1,operand2);
+            }
+            else if(no_input==3)
+            {
+                int operand1,operand2,operand3;
+                printf("\nEnter the values\n");
+                scanf("%d %d %d",&operand1,&operand2,&operand3);
+                result=nor_three(operand1,operand2,operand3);
+            }
+            else
+            {
+                printf("\ninvalid input\n");
+            }
+            break;
+    case XOR:
+            printf("\n 1.Two input XOR\n 2.Three input XOR\n");
+            scanf("%d",&no_input);
+            if(no_input==2)
+            {
+                int operand1,operand2;
+                printf("\nEnter the values\n");
+                scanf("%d %d",&operand1,&operand2);
+                result=xor_two(operand1,operand2);
+            }
+            else if(no_input==3)
+            {
+                int operand1,operand2,operand3;
+                printf("\nEnter the values\n");
+                scanf("%d %d %d",&operand1,&operand2,&operand3);
+                result=xor_three(operand1,operand2,operand3);
+            }
+            else
+            {
+                printf("\n Invalid Input\n");
+            }
+            break;
+    case XNOR:
+            printf("\nEnter the values\n");
+            scanf("%d %d",&operand1,&operand2);
+            result=xnor(operand1,operand2);
+            break;
+    case EXIT:
+              exit(0);
               break;
-
-            case OR:
-    printf("\n 1.Two input OR\n 2.Three input OR\n");
-    scanf("%d",&n);
-    if(n==1)
-    {
-    int a,b;
-    printf("\nEnter the values\n");
-    scanf("%d %d",&a,&b);
-    result=or_two(a,b);
-    }
-    else if(n==2)
-    {
-    int a,b,c;
-    printf("\nEnter the values\n");
-    scanf("%d %d %d",&a,&b,&c);
-    result=or_three(a,b,c);
-    }
-    else
-    {
-        printf("\ninvalid input\n");
-    }
-                      break;
-
-            case NAND:
-    printf("\n 1.Two input NAND\n 2.Three input NAND\n");
-    scanf("%d",&n);
-    if(n==1)
-    {
-    int a,b;
-    printf("\nEnter the values\n");
-    scanf("%d %d",&a,&b);
-    result=nand_two(a,b);
-    }
-    else if(n==2)
-    {
-    int a,b,c;
-    printf("\nEnter the values\n");
-    scanf("%d %d %d",&a,&b,&c);
-    result=nand_three(a,b,c);
-    }
-    else
-    {
-        printf("\ninvalid input\n");
-    }
-                      break;
-
-            case NOR:
-    printf("\n 1.Two input NOR\n 2.Three input NOR\n");
-    scanf("%d",&n);
-    if(n==1)
-    {
-    int a,b;
-    printf("\nEnter the values\n");
-    scanf("%d %d",&a,&b);
-    result=nor_two(a,b);
-    }
-    else if(n==2)
-    {
-    int a,b,c;
-    printf("\nEnter the values\n");
-    scanf("%d %d %d",&a,&b,&c);
-    result=nor_three(a,b,c);
-    }
-    else
-    {
-        printf("\ninvalid input\n");
-    }
-
-                      break;
-
-            case XOR:
-    printf("\n 1.Two input XOR\n 2.Three input XOR\n");
-    scanf("%d",&n);
-    if(n==1)
-    {
-    int a,b;
-    printf("\nEnter the values\n");
-    scanf("%d %d",&a,&b);
-    result=xor_two(a,b);
-
-    }
-    else if(n==2)
-    {
-    int a,b,c;
-    printf("\nEnter the values\n");
-    scanf("%d %d %d",&a,&b,&c);
-    result=xor_three(a,b,c);
-    }
-    else
-    {
-        printf("\ninvalid input\n");
-    }
-                      break;
-
-            case XNOR:
-    printf("\nEnter the values\n");
-    scanf("%d%d",&a,&b);
-    result=xnor(a,b);
-                      break;
-
-            case QUIT:
-                      exit(0);
-                      break;
-            default : system("cls");
-
-    printf("\nYou have entered unavailable option\n");
-    printf("\nPlease Enter any one of below available options\n");
+    default : system("cls");
+                printf("\n You have entered Invalid Choice \n");
+                printf("\n Please Enter Valid Choice \n");
         }
     }
     test_main();
 }
-
