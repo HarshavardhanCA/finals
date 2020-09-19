@@ -1,93 +1,94 @@
 #include<stdio.h>
-int not(int a)
+
+int not(int operand1)
 {
     int result;
-    result=!a;
+    result=!operand1;
     printf("\n%d\n",result);
     return result;
 }
 
-int and_two(int a,int b)
+int and_two(int operand1,int operand2)
 {
     int result;
-    result=a&b;
+    result=operand1 & operand2;
     printf("\n%d\n",result);
     return result;
 }
-int and_three(int a,int b,int c)
+int and_three(int operand1,int operand2,int operand3)
 {
     int result;
-    result=a&b&c;
+    result=operand1 & operand2 & operand3;
     printf("\n%d\n",result);
     return result;
 }
-int or_two(int a,int b)
+int or_two(int operand1,int operand2)
 {
     int result;
-    result=a|b;
+    result=operand1 | operand2;
     printf("\n%d\n",result);
     return result;
 }
-int or_three(int a,int b,int c)
+int or_three(int operand1 ,int operand2 ,int operand3)
 {
     int result;
-    result=a|b|c;
+    result=operand1 |operand2 |operand3;
     printf("\n%d\n",result);
     return result;
 }
 
-int nor_two(int a,int b)
+int nor_two(int operand1,int operand2)
 {
     int result;
-    result=!(a|b);
+    result=!(operand1|operand2);
     printf("\n%d\n",result);
     return result;
 }
-int nor_three(int a,int b,int c)
+int nor_three(int operand1,int operand2,int operand3)
 {
 
 int result;
-    result=!(a|b|c);
+    result=!(operand1|operand2|operand3);
     printf("\n%d\n",result);
     return result;
 }
 
 
 
-int nand_two(int a,int b)
+int nand_two(int operand1,int operand2)
 {
     int result;
-    result=!(a&b);
+    result=!(operand1 & operand2);
     printf("\n%d\n",result);
     return result;
 }
-int nand_three(int a,int b,int c)
+int nand_three(int operand1,int operand2,int operand3)
 {
 
     int result;
-    result=!(a&b&c);
+    result=!(operand1 & operand2 & operand3);
     printf("\n%d\n",result);
     return result;
 
 }
-int xor_two(int a,int b)
+int xor_two(int operand1,int operand2)
 {
     int result;
-    result=((a&(~b))+((~a)&b));
+    result=((operand1 &(~ operand2))+((~operand1)& operand2));
     printf("\n%d\n",result);
     return result;
 }
-int xor_three(int a,int b,int c)
+int xor_three(int operand1,int operand2,intoperand3 )
 {
     int result;
-    result=((a&b&c) + ((~a)&(~b)&c) + ((~a)&b&(~c)) + (a&(~b)&(~c)));
+    result=((operand1 & operand2 & operand3) + ((~operand1)&(~operand2)&operand3) + ((~operand1)&operand2&(~operand3)) + (operand1&(~operand2)&(~operand3)));
     printf("\n%d\n",result);
     return result;
 }
-int xnor(int a,int b)
+int xnor(int operand1,int operand2)
 {
     int result;
-    result=((a&b)+((!a)&(!b)));
+    result=((operand1&operand2)+((!operand1)&(!operand2)));
     printf("\n%d\n",result);
     return result;
 }
